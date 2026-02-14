@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo">Mi App</a>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="registro.html">Registro</a>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <div class="registro-container">
+      <h1>Crear cuenta</h1>
+      <form class="registro-form" action="#" method="get">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+        <label for="email">Correo electrónico</label>
+        <input type="email" id="email" name="email" required placeholder="tu@email.com">
+        <label for="usuario-reg">Usuario</label>
+        <input type="text" id="usuario-reg" name="usuario" required placeholder="Nombre de usuario">
+        <label for="password-reg">Contraseña</label>
+        <input type="password" id="password-reg" name="password" required placeholder="Mínimo 6 caracteres">
+        <label for="password2">Repetir contraseña</label>
+        <input type="password" id="password2" name="password2" required placeholder="Repite la contraseña">
+        <button type="submit">Registrarse</button>
+      </form>
+      <p class="form-footer">¿Ya tienes cuenta? <a href="index.html">Inicia sesión</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Mi Proyecto Javier Yahir Juarez Arroyo.</p>
+  </footer>
+</body>
+</html>

@@ -7,15 +7,30 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="login-container">
-    <h1>Iniciar sesion</h1>
-    <form class="login-form" action="interior.html" method="get">
-      <label for="usuario">Usuario</label>
-      <input type="text" id="usuario" name="usuario" required placeholder="Tu usuario">
-      <label for="password">Contrasena</label>
-      <input type="password" id="password" name="password" required placeholder="Tu contrasena">
-      <button type="submit">Entrar</button>
-    </form>
-  </div>
+  <header class="site-header">
+    <a href="index.html" class="logo">Mi App</a>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="registro.html">Registro</a>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <div class="login-container">
+      <h1>Iniciar sesion</h1>
+      <form class="login-form" action="interior.html" method="get">
+        <label for="usuario">Usuario</label>
+        <input type="text" id="usuario" name="usuario" required placeholder="Tu usuario">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" required placeholder="Tu contraseña">
+        <button type="submit">Entrar</button>
+      </form>
+      <p class="form-footer">¿No tienes cuenta? <a href="registro.html">Regístrate</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy;  2026 Mi Proyecto Javier Yahir Juarez Arroyo</p>
+  </footer>
 </body>
 </html>

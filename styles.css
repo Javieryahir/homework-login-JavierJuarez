@@ -4,21 +4,90 @@
   box-sizing: border-box;
 }
 
+
 body {
   font-family: Arial, sans-serif;
   background: #f0f0f0;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header y Footer globales */
+.site-header {
+  background: #fff;
+  padding: 12px 24px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
+
+.site-header .logo {
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.site-header nav a {
+  color: #555;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 0.95rem;
+}
+
+.site-header nav a:hover {
+  color: #333;
+  text-decoration: underline;
+}
+
+.site-header-inner {
+  background: #333;
+  border-bottom: none;
+}
+
+.site-header-inner .logo,
+.site-header-inner nav a {
+  color: #fff;
+}
+
+.site-header-inner nav a:hover {
+  color: #ddd;
+}
+
+.site-header-inner .salir {
+  color: #f88;
+}
+
+.main-content {
+  flex: 1;
+  padding: 40px 20px;
+}
+
+.site-footer {
+  background: #333;
+  color: #999;
+  padding: 16px 24px;
+  text-align: center;
+  font-size: 0.85rem;
 }
 
 /* Login */
 .login-container {
   max-width: 320px;
-  margin: 80px auto;
+  margin: 0 auto;
   padding: 24px;
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
 }
+
+
+
 
 .login-container h1 {
   font-size: 1.5rem;
@@ -43,7 +112,73 @@ body {
   font-size: 1rem;
 }
 
+
+
+
 .login-form button {
+  width: 100%;
+  padding: 10px;
+  background: #333;
+  color: #fff;
+
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+.login-form button:hover {
+  background: #555;
+}
+
+.form-footer {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.form-footer a {
+  color: #333;
+  text-decoration: underline;
+}
+
+/* Registro */
+.registro-container {
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.registro-container h1 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.registro-form label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.registro-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+
+.registro-form button {
   width: 100%;
   padding: 10px;
   background: #333;
@@ -54,34 +189,25 @@ body {
   cursor: pointer;
 }
 
-.login-form button:hover {
+
+
+
+.registro-form button:hover {
   background: #555;
 }
 
-/* Pagina interior */
-.header {
-  background: #333;
-  padding: 12px 20px;
-}
-
-.header .salir {
-  color: #fff;
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-
-.header .salir:hover {
-  text-decoration: underline;
-}
-
+/* Páginas interiores */
 .interior {
   max-width: 600px;
-  margin: 40px auto;
+  margin: 0 auto;
   padding: 24px;
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
 }
+
+
+
 
 .interior h1 {
   font-size: 1.5rem;
@@ -93,3 +219,4 @@ body {
   color: #555;
   line-height: 1.5;
 }
+
