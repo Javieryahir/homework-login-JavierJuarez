@@ -18,17 +18,18 @@
   <main class="main-content">
     <div class="registro-container">
       <h1>Crear cuenta</h1>
-      <form class="registro-form" action="#" method="get">
+      <div id="registro-msg" class="form-msg form-error" role="alert" aria-live="polite" style="display: none;"></div>
+      <form class="registro-form" id="registro-form" action="#" method="get">
         <label for="nombre">Nombre completo</label>
-        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" autocomplete="name">
         <label for="email">Correo electrónico</label>
-        <input type="email" id="email" name="email" required placeholder="tu@email.com">
+        <input type="email" id="email" name="email" required placeholder="tu@email.com" autocomplete="email">
         <label for="usuario-reg">Usuario</label>
-        <input type="text" id="usuario-reg" name="usuario" required placeholder="Nombre de usuario">
+        <input type="text" id="usuario-reg" name="usuario" required placeholder="Nombre de usuario" autocomplete="username">
         <label for="password-reg">Contraseña</label>
-        <input type="password" id="password-reg" name="password" required placeholder="Mínimo 6 caracteres">
+        <input type="password" id="password-reg" name="password" required placeholder="Mínimo 6 caracteres" autocomplete="new-password">
         <label for="password2">Repetir contraseña</label>
-        <input type="password" id="password2" name="password2" required placeholder="Repite la contraseña">
+        <input type="password" id="password2" name="password2" required placeholder="Repite la contraseña" autocomplete="new-password">
         <button type="submit">Registrarse</button>
       </form>
       <p class="form-footer">¿Ya tienes cuenta? <a href="index.html">Inicia sesión</a></p>
@@ -38,5 +39,34 @@
   <footer class="site-footer">
     <p>&copy; 2026 Mi Proyecto Javier Yahir Juarez Arroyo.</p>
   </footer>
+  <script src="js/auth.js"></script>
+  <script>
+    (function () {
+      var form = document.getElementById('registro-form');
+      var msg = document.getElementById('registro-msg');
+      function showMsg(text, isError) {
+        msg.textContent = text;
+        msg.style.display = 'block';
+        msg.classList.toggle('form-error', isError);
+        msg.classList.toggle('form-success', !isError);
+      }
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        msg.style.display = 'none';
+        var nombre = document.getElementById('nombre').value;
+        var email = document.getElementById('email').value;
+        var usuario = document.getElementById('usuario-reg').value;
+        var password = document.getElementById('password-reg').value;
+        var password2 = document.getElementById('password2').value;
+        var result = register(nombre, email, usuario, password, password2);
+        if (result.ok) {
+          showMsg('Cuenta creada. Redirigiendo al inicio de sesión…', false);
+          setTimeout(function () { window.location.href = 'index.html'; }, 1500);
+        } else {
+          showMsg(result.error || 'Error al registrar.', true);
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

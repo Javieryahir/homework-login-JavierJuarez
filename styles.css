@@ -132,6 +132,25 @@ body {
   background: #555;
 }
 
+.form-msg {
+  margin-bottom: 16px;
+  padding: 10px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.form-error {
+  background: #fee;
+  color: #c00;
+  border: 1px solid #fcc;
+}
+
+.form-success {
+  background: #efe;
+  color: #060;
+  border: 1px solid #cfc;
+}
+
 .form-footer {
   text-align: center;
   margin-top: 16px;

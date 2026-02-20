@@ -17,12 +17,13 @@
 
   <main class="main-content">
     <div class="login-container">
-      <h1>Iniciar sesion</h1>
-      <form class="login-form" action="interior.html" method="get">
+      <h1>Iniciar sesión</h1>
+      <div id="login-msg" class="form-msg form-error" role="alert" aria-live="polite" style="display: none;"></div>
+      <form class="login-form" id="login-form" action="interior.html" method="get">
         <label for="usuario">Usuario</label>
-        <input type="text" id="usuario" name="usuario" required placeholder="Tu usuario">
+        <input type="text" id="usuario" name="usuario" required placeholder="Tu usuario" autocomplete="username">
         <label for="password">Contraseña</label>
-        <input type="password" id="password" name="password" required placeholder="Tu contraseña">
+        <input type="password" id="password" name="password" required placeholder="Tu contraseña" autocomplete="current-password">
         <button type="submit">Entrar</button>
       </form>
       <p class="form-footer">¿No tienes cuenta? <a href="registro.html">Regístrate</a></p>
@@ -32,5 +33,28 @@
   <footer class="site-footer">
     <p>&copy;  2026 Mi Proyecto Javier Yahir Juarez Arroyo</p>
   </footer>
+  <script src="js/auth.js"></script>
+  <script>
+    (function () {
+      var form = document.getElementById('login-form');
+      var msg = document.getElementById('login-msg');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        msg.style.display = 'none';
+        msg.classList.remove('form-success');
+        msg.classList.add('form-error');
+        var usuario = document.getElementById('usuario').value;
+        var password = document.getElementById('password').value;
+        var user = login(usuario, password);
+        if (user) {
+          setCurrentUser(user);
+          window.location.href = 'interior.html';
+        } else {
+          msg.textContent = 'Usuario o contraseña incorrectos.';
+          msg.style.display = 'block';
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

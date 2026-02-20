@@ -13,7 +13,7 @@
       <a href="interior.html">Inicio</a>
       <a href="perfil.html">Perfil</a>
       <a href="configuracion.html">Configuración</a>
-      <a href="index.html" class="salir">Cerrar sesión</a>
+      <a href="index.html" class="salir" id="btn-logout">Cerrar sesión</a>
     </nav>
   </header>
 
@@ -27,5 +27,9 @@
   <footer class="site-footer">
     <p>&copy;  2026 Mi Proyecto Javier Yahir Juarez Arroyo</p>
   </footer>
+  <script src="js/auth.js"></script>
+  <script>
+    document.getElementById('btn-logout').addEventListener('click', function () { logout(); });
+  </script>
 </body>
 </html>
