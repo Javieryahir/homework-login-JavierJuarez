@@ -63,6 +63,16 @@ body {
   color: #f88;
 }
 
+.site-header-inner .header-user {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin-right: 16px;
+}
+
+.site-header-inner .header-user strong {
+  color: #fff;
+}
+
 .main-content {
   flex: 1;
   padding: 40px 20px;

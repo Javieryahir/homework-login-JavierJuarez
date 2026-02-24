@@ -7,29 +7,17 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header site-header-inner">
-    <a href="interior.html" class="logo">Mi App</a>
-    <nav>
-      <a href="interior.html">Inicio</a>
-      <a href="perfil.html">Perfil</a>
-      <a href="configuracion.html">Configuración</a>
-      <a href="index.html" class="salir" id="btn-logout">Cerrar sesión</a>
-    </nav>
-  </header>
+  <div id="site-header"></div>
 
   <main class="main-content">
     <div class="interior">
       <h1>Configuración</h1>
-      <p>Opciones de configuración de la cuenta. </p>
+      <p>Opciones de configuración de la cuenta.</p>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <p>&copy;  2026 Mi Proyecto Javier Yahir Juarez Arroyo</p>
-  </footer>
+  <div id="site-footer"></div>
   <script src="js/auth.js"></script>
-  <script>
-    document.getElementById('btn-logout').addEventListener('click', function () { logout(); });
-  </script>
+  <script src="js/layout-inner.js"></script>
 </body>
 </html>
