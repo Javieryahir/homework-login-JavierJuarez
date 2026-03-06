@@ -16,11 +16,14 @@
 
       <section class="pokemon-section" aria-labelledby="pokemon-title">
         <h2 id="pokemon-title">Pokémon (PokeAPI)</h2>
-        <div class="pokemon-search">
-          <input type="text" id="pokemon-input" placeholder="ID o nombre (ej: 25, pikachu)" value="25">
-          <button type="button" id="pokemon-btn">Buscar</button>
+        <div class="pokemon-filters">
+          <input type="text" id="filter-id" placeholder="ID" title="Filtrar por ID">
+          <input type="text" id="filter-nombre" placeholder="Nombre" title="Filtrar por nombre">
+          <select id="filter-tipo" title="Filtrar por tipo">
+            <option value="">Todos los tipos</option>
+          </select>
         </div>
-        <div id="pokemon-card" class="pokemon-card">
+        <div id="pokemon-grid" class="pokemon-grid">
           <p class="pokemon-loading">Cargando…</p>
         </div>
       </section>

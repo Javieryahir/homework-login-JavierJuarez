@@ -1,7 +1,6 @@
 /**
- * Layout compartido para páginas interiores: header, footer y protección por sesión.
- * Inyecta el mismo header y footer en todas las páginas y muestra el usuario logueado.
- * Las páginas solo son accesibles si hay sesión iniciada.
+ * Layout compartido para paginas interiores: header, footer y proteccion por sesion.
+ * Inyecta el mismo header y footer; las paginas solo son accesibles con sesion iniciada.
  */
 (function () {
   if (typeof getCurrentUser !== 'function') {
@@ -11,7 +10,7 @@
 
   var user = getCurrentUser();
   if (!user) {
-    window.location.href = 'index.html';
+    window.location.href = 'index.html';  // sin sesion, redirige al login
     return;
   }
 
@@ -37,14 +36,14 @@
     headerEl.innerHTML = headerHtml;
     var userEl = document.getElementById('header-user');
     if (userEl) {
-      userEl.textContent = user.nombre || user.usuario || user.email || 'Usuario';
+      userEl.textContent = user.nombre || user.usuario || user.email || 'Usuario';  // muestra nombre en header
     }
     var logoutBtn = document.getElementById('btn-logout');
     if (logoutBtn) {
       logoutBtn.addEventListener('click', function (e) {
         e.preventDefault();
         logout();
-        window.location.href = 'index.html';
+        window.location.href = 'index.html';  // cierra sesion y va al login
       });
     }
   }

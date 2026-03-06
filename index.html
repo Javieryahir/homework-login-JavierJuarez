@@ -39,16 +39,14 @@
       var form = document.getElementById('login-form');
       var msg = document.getElementById('login-msg');
       form.addEventListener('submit', function (e) {
-        e.preventDefault();
+        e.preventDefault();  // evita envío normal del form
         msg.style.display = 'none';
-        msg.classList.remove('form-success');
-        msg.classList.add('form-error');
         var usuario = document.getElementById('usuario').value;
         var password = document.getElementById('password').value;
         var user = login(usuario, password);
         if (user) {
           setCurrentUser(user);
-          window.location.href = 'interior.html';
+          window.location.href = 'interior.html';  // login ok, entra al area interior
         } else {
           msg.textContent = 'Usuario o contraseña incorrectos.';
           msg.style.display = 'block';

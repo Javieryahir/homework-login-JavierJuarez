@@ -1,13 +1,12 @@
-
-
-var AUTH_STORAGE_KEY = 'app_usuarios';
-var CURRENT_USER_KEY = 'app_usuario_actual';
-
+/**
+ * Autenticacion: login, registro y sesion con localStorage y sessionStorage.
+ */
+var AUTH_STORAGE_KEY = 'app_usuarios';    // clave en localStorage para la lista de usuarios
+var CURRENT_USER_KEY = 'app_usuario_actual';  // clave en sessionStorage para el usuario logueado
 
 var USUARIOS_DEMO = [
   { nombre: 'Usuario Demo', email: 'demo@ejemplo.com', usuario: 'demo', password: '123' }
-];
-
+];  // usuario de prueba: demo / 123
 
 function getUsers() {
   try {
@@ -19,16 +18,13 @@ function getUsers() {
     return USUARIOS_DEMO.slice();
   }
 }
-
+// lee la lista de usuarios desde localStorage; si no hay, devuelve los demo
 
 function saveUsers(users) {
   localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(users));
 }
+// persiste la lista de usuarios en localStorage
 
-/**
- * Valida credenciales y devuelve el usuario si son correctas.
- * @returns {Object|null} Usuario o null
- */
 function login(usuario, password) {
   var users = getUsers();
   usuario = (usuario || '').trim().toLowerCase();
@@ -39,8 +35,7 @@ function login(usuario, password) {
   }
   return null;
 }
-
-
+// valida usuario y password; devuelve el objeto usuario o null
 
 function register(nombre, email, usuario, password, password2) {
   nombre = (nombre || '').trim();
@@ -72,17 +67,17 @@ function register(nombre, email, usuario, password, password2) {
   users.push(nuevo);
   saveUsers(users);
 
-  console.log('Usuario registrado (guardado en localStorage y mostrado aquí):', JSON.stringify(nuevo, null, 2));
+  console.log('Usuario registrado (guardado en localStorage y mostrado aqui):', JSON.stringify(nuevo, null, 2));
   return { ok: true };
 }
-
+// valida campos, comprueba usuario/email unicos, guarda en localStorage y en consola
 
 function setCurrentUser(user) {
   try {
     sessionStorage.setItem(CURRENT_USER_KEY, JSON.stringify(user));
   } catch (e) {}
 }
-
+// guarda el usuario actual en sessionStorage (sesion activa)
 
 function getCurrentUser() {
   try {
@@ -92,7 +87,9 @@ function getCurrentUser() {
     return null;
   }
 }
+// lee el usuario actual de la sesion; null si no hay
 
 function logout() {
   sessionStorage.removeItem(CURRENT_USER_KEY);
 }
+// cierra sesion borrando el usuario de sessionStorage

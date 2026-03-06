@@ -60,8 +60,8 @@
         var password2 = document.getElementById('password2').value;
         var result = register(nombre, email, usuario, password, password2);
         if (result.ok) {
-          showMsg('Cuenta creada. Redirigiendo al inicio de sesión…', false);
-          setTimeout(function () { window.location.href = 'index.html'; }, 1500);
+          showMsg('Cuenta creada. Redirigiendo al inicio de sesion…', false);
+          setTimeout(function () { window.location.href = 'index.html'; }, 1500);  // va al login tras 1.5s
         } else {
           showMsg(result.error || 'Error al registrar.', true);
         }
